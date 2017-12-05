@@ -5,7 +5,7 @@ MAINTAINER Thorsten Wagner (https://github.com/thorstenwagner)
 ENV UBUNTU_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get wget
+RUN apt-get install wget
 
 # Install cude toolkit 7.5
 RUN wget --no-check-certificate https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
@@ -13,7 +13,9 @@ RUN sh cuda_9.0.176_384.81_linux-run --silent
 
 
 # Install cuDNN
-RUN wget --no-check-certificate https://owncloud.gwdg.de/index.php/s/PKa6F4bFFX871dJ/download
+#https://owncloud.gwdg.de/index.php/s/LY84GWPbPoJF7Lm cudnn V9
+#https://owncloud.gwdg.de/index.php/s/PKa6F4bFFX871dJ/download cudnn v4
+RUN wget --no-check-certificate https://owncloud.gwdg.de/index.php/s/LY84GWPbPoJF7Lm
 RUN mv download cudnn.tgz
 RUN tar xvzf cudnn.tgz
 RUN cp cuda/include/cudnn.h /usr/local/cuda/include/
