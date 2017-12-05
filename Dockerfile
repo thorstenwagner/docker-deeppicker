@@ -1,5 +1,3 @@
-#docker run -ti --device /dev/nvidia0:/dev/nvidia0 --device /dev/nvidia1:/dev/nvidia1 --device /dev/nvidia2:/dev/nvidia2 --device /dev/nvidia3:/dev/nvidia3 --device /dev/nvidiactl:/dev/nvidiactl --device /dev/nvidia-uvm:/dev/nvidia-uvm --device /dev/nvidia-uvm:/dev/nvidia-uvm --device /dev/nvidia-uvm-tools:/dev/nvidia-uvm-tools thorstenwagner/docker-deeppicker /bin/bash
-
 FROM nvidia/cuda
 
 MAINTAINER Thorsten Wagner (https://github.com/thorstenwagner)
