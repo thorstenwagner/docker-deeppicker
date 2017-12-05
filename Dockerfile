@@ -5,7 +5,7 @@ MAINTAINER Thorsten Wagner (https://github.com/thorstenwagner)
 ENV UBUNTU_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt-get install wget
+RUN apt-get install -y wget
 
 # Install cude toolkit 7.5
 RUN wget --no-check-certificate https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
