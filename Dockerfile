@@ -1,7 +1,7 @@
 # Setups Nvidia GPU installation and a particle picker for cryp-em images
 # based on a deep neural network https://github.com/nejyeah/DeepPicker-python
 # Furthermore this image contains PyCharm, a running ssh-server, screen, and xpar
-FROM nvidia/cuda:7.5-cudnn4-runtime-ubuntu14.04
+FROM nvidia/cuda:7.5-cudnn4-devel-ubuntu14.04
 
 MAINTAINER Thorsten Wagner (https://github.com/thorstenwagner)
 
