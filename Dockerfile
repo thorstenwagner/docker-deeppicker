@@ -20,6 +20,11 @@ RUN echo 'root:screencast' | chpasswd
 RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 # SSH login fix. Otherwise user is kicked off after login
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+ENV NOTVISIBLE "in users profile"
+RUN echo "export VISIBLE=now" >> /etc/profile
+
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
 
 ### Install PyCharm for development
 RUN add-apt-repository -y ppa:mystic-mirage/pycharm
@@ -27,15 +32,11 @@ RUN apt-get update
 RUN apt install -y pycharm-community
 
 ### Install xpra
-RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
-RUN apt-get update
-RUN apt-get install -y  xpra
+#RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
+#RUN apt-get update
+#RUN apt-get install -y  xpra
 
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
 
 
 ### Install cude toolkit 9.0
