@@ -11,5 +11,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update
 
 #### Install basic  tools
-RUN apt-get install -y wget locate software-properties-common python-software-properties
+RUN apt-get install -y wget locate software-properties-common python-software-properties python-pip python-dev python-virtualenv
+RUN virtualenv --system-site-packages ~/tensorflow; source ~/tensorflow/bin/activate; pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0-cp27-none-linux_x86_64.whl
+
 
