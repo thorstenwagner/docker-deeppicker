@@ -32,7 +32,7 @@ RUN apt-get update
 RUN apt install -y pycharm-community
 
 ### Install xpra
-RUN wget -q http://winswitch.org/gpg.asc -O- | sudo apt-key add - 
+RUN wget -q http://winswitch.org/gpg.asc -O- | apt-key add - 
 RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
 RUN apt-get update
 RUN apt-get install -y  xpra
