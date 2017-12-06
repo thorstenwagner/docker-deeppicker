@@ -32,12 +32,10 @@ RUN apt-get update
 RUN apt install -y pycharm-community
 
 ### Install xpra
-#RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
-#RUN apt-get update
-#RUN apt-get install -y  xpra
-
-
-
+RUN wget -q http://winswitch.org/gpg.asc -O- | sudo apt-key add - 
+RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
+RUN apt-get update
+RUN apt-get install -y  xpra
 
 ### Install cude toolkit 9.0
 # Cuda toolkit v9.0 https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
