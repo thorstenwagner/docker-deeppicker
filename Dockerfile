@@ -23,8 +23,8 @@ RUN apt-get install -y wget locate software-properties-common python-software-pr
 #ENV NOTVISIBLE "in users profile"
 #RUN echo "export VISIBLE=now" >> /etc/profile
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+#EXPOSE 22
+#CMD ["/usr/sbin/sshd", "-D"]
 
 ### Install PyCharm for development
 #RUN add-apt-repository -y ppa:mystic-mirage/pycharm
