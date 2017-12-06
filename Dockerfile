@@ -14,28 +14,28 @@ RUN apt-get update
 RUN apt-get install -y wget locate software-properties-common python-software-properties
 
 ### Setup ssh server
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
-RUN echo 'root:screencast' | chpasswd
-RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+#RUN apt-get install -y openssh-server
+#RUN mkdir /var/run/sshd
+#RUN echo 'root:screencast' | chpasswd
+#RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 # SSH login fix. Otherwise user is kicked off after login
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
-ENV NOTVISIBLE "in users profile"
-RUN echo "export VISIBLE=now" >> /etc/profile
+#RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+#ENV NOTVISIBLE "in users profile"
+#RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
 ### Install PyCharm for development
-RUN add-apt-repository -y ppa:mystic-mirage/pycharm
-RUN apt-get update
-RUN apt install -y pycharm-community
+#RUN add-apt-repository -y ppa:mystic-mirage/pycharm
+#RUN apt-get update
+#RUN apt install -y pycharm-community
 
 ### Install xpra
-RUN wget -q http://winswitch.org/gpg.asc -O- | apt-key add - 
-RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
-RUN apt-get update
-RUN apt-get install -y  xpra
+#RUN wget -q http://winswitch.org/gpg.asc -O- | apt-key add - 
+#RUN add-apt-repository  -y 'deb http://winswitch.org/ xenial main'
+#RUN apt-get update
+#RUN apt-get install -y  xpra
 
 ### Install cude toolkit 9.0
 # Cuda toolkit v9.0 https://developer.nvidia.com/compute/cuda/9.0/Prod/local_installers/cuda_9.0.176_384.81_linux-run
@@ -57,5 +57,5 @@ RUN chmod a+r /usr/local/cuda/include/cudnn.h /usr/local/cuda/lib64/libcudnn.so
 
 RUN apt-get install -y python-pip python-dev python-virtualenv
 RUN virtualenv --system-site-packages ~/tensorflow
-RUN source ~/tensorflow/bin/activate; pip install --upgrade tensorflow-gpu
+RUN bash source ~/tensorflow/bin/activate; pip install --upgrade tensorflow-gpu
 
