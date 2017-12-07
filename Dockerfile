@@ -14,7 +14,7 @@ RUN apt-get update
 RUN apt-get install -y wget locate software-properties-common python-software-properties python-pip python-dev python-virtualenv
 # 0.12.0: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.12.1-cp27-none-linux_x86_64.whl
 # 0.10.0 https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
-RUN virtualenv --system-site-packages ~/tensorflow; source ~/tensorflow/bin/activate; pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.10.0-cp27-none-linux_x86_64.whl
+RUN virtualenv --system-site-packages ~/tensorflow; source ~/tensorflow/bin/activate; pip install --upgrade https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow-0.9.0-cp27-none-linux_x86_64.whl
 
 #### Install other software
 RUN apt-get install -y python-matplotlib python-scipy git
